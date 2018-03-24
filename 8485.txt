@@ -1,0 +1,79 @@
+void K84()
+{
+	using namespace std;
+	const int ySize = 4;
+	const int xSize = 4;
+	int arr[ySize][xSize];
+	for (int i = 0; i < ySize; ++i)
+	{
+		for (int j = 0; j < xSize; ++j)
+		{
+			arr[i][j] = -50 + rand() % 100;
+		}
+	}
+
+	vector <int > CreditSaldo;
+	for (int i = 0; i < ySize; ++i)
+	{
+		for (int n : arr[i])
+		{
+			cout << n << " ";
+			if (n < 0)
+				CreditSaldo.push_back(n);
+		}
+		cout << endl;
+	}
+
+	cout << "Credit Saldos " << endl;
+	for (int i : CreditSaldo)
+		cout << i << " ";
+}
+
+
+int K85()
+{
+
+	const int xSize = 2;
+	const int ySize = 2;
+	const int zSize = 2;
+
+	int arr[zSize][ySize][xSize];
+	for (int i = 0; i < zSize; ++i)
+	{
+		for (int j = 0; j < ySize; ++j)
+		{
+			for (int k = 0; k < xSize; ++k)
+			{
+				arr[i][j][k] = 1 + rand() % 80;
+				cout << setw(4) << arr[i][j][k];
+			}
+			cout << endl;
+
+		}
+		cout << endl;
+	}
+	int sum = 0;
+	sum += arr[0][0][0] + arr[1][1][1] /*+ arr[2][2][2]*/;
+	int a = arr[0][0][0];
+	int b = arr[1][1][1];
+	cout << a << "\t" << b << endl;
+	cout << "sum = " << sum << endl;
+	
+	while (a != 0 && b != a && b != 0)
+	
+
+		if (a > b)
+		{
+			a %= b;
+			cout << "a = " << a << endl;
+		}
+		else
+		{
+			b %= a;
+			cout << "b =" << b << endl;
+		}
+
+		return a + b;
+	
+
+}
